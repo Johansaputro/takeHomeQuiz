@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(User user) throws AuthenticationException {
+    public String login(User user) {
         LOGGER.info("User log in with details {}", user);
 
         try {
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
             return jwtToken;
         } catch (Exception e) {
             LOGGER.error("Error in Login {}", e.getMessage(), e);
-            throw new RuntimeException();
+            throw new RuntimeException("Error during login");
         }
     }
 }

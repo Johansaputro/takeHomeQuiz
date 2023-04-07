@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @RestController
 @RequestMapping(ApiPath.JOB)
 public class JobController {
@@ -32,7 +30,6 @@ public class JobController {
     public ResponseEntity<JobPositions> getJobPositions() {
         LOGGER.info("getJobPositions");
         JobPositions response = dansOutboundService.getJobPositions();
-        LOGGER.info(response.toString());
         return ResponseEntity.ok(response);
     }
 
